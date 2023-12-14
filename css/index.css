@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
+:root{
+    --verde: #2BABAB;
+    --verde-claro: #48d4cb;
+    --gris: #f1f1f1;
+    --negro: #232323;
+}
+
+*{
+    box-sizing: border-box; 
+    
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+html{
+    font-size: 62.5%;
+}
+body{
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;   
+    background-color: var(--gris);
+}
+p {
+    font-size: 1.6rem; /* Tamaño de fuente para párrafos */
+  }
+
+.header-container{
+margin-bottom: 60px;
+padding-left: 5px;
+padding-right: 5px;
+}
+.header-container .info-container h1{
+    font-size: 3.2rem;
+    
+}
+.header-container .info-container h3{
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+.header-container .info-container button{
+    width: 140px;
+    height: 40px;   
+    margin-top: 30px;
+    color: var(--verde);
+    background-color: var(--gris);
+    border-style: none;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.quienes-somos-container {
+    display: flex;
+    justify-content: center;
+}
+
+.quienes-somos-container .qs-titulo-container{
+    border-radius: 24% 76% 30% 70% / 70% 67% 33% 30%;
+    position: relative;
+    /* These are ADDITIONAL styles - add them if you want an object exactly like in the demo above */
+    width: 370px;
+    height: 300px;
+    
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.uno{
+  
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Assets/marca/Educai-Oficinas.jpg");
+}
+.dos{
+  
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Assets/marca/educai-qs.jpg");
+}
+.tres{
+  
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Assets/marca/caja.jpg");
+}
+
+
+.quienes-somos-container .qs-titulo-container h2{
+   position: absolute;
+    font-size: 3.4rem;
+    color: var(--gris);
+}
+
+.qs-titulo-container{
+    margin-bottom: 20px;
+}
+
+.qs-explicacion-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    min-width: 350px;
+    text-align: left;
+}
+
+.header-container .info-container button:hover{
+    transform: scale(1.15);
+    transition: transform 150ms ease-in-out;
+    cursor: pointer;
+}
+
+
+

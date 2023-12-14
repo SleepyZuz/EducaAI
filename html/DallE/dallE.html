@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dall·E</title>
+
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/tecnologias.css">
+    <link rel="stylesheet" href="/css/dalle.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header id="header">
+
+    </header>
+
+    <main>
+        <section class="introduccion">
+            <h3>Descubre DALL-E: Una IA generadora de imágenes</h3>
+            <p>¡Bienvenido a DALL-E, una asombrosa inteligencia artificial diseñada para crear imágenes impresionantes!
+                DALL-E es capaz de generar imágenes a partir de descripciones visuales o conceptos proporcionados por
+                los usuarios.</p>
+            <p>Utilizando técnicas avanzadas de aprendizaje automático y una base de datos masiva, DALL-E puede producir
+                imágenes únicas y realistas que representan una amplia variedad de objetos, escenarios e ideas.</p>
+            <p>Simplemente ingresa una descripción visual detallada, como "un gato volando en el espacio" o "un paisaje
+                surrealista con nubes de algodón de azúcar", y DALL-E se encargará de crear una imagen que capte esa
+                visión de manera sorprendente.</p>
+            <p>Las imágenes generadas por DALL-E muestran un nivel de detalle impresionante y pueden ser utilizadas en
+                diversas aplicaciones creativas, desde ilustraciones artísticas hasta diseño de personajes y
+                visualización de conceptos.</p>
+            <p>¡Explora la capacidad de DALL-E para dar vida a tus ideas e inspirarte en nuevos proyectos visuales! Haz
+                clic en el botón a continuación para ver en acción a esta asombrosa IA generadora de imágenes.</p>
+                <button class="botonDALL-E" id="botonEjemplo" onclick="LlamarEjemploDALLE()">Generar imagen</button>
+            <div class="playground-container">
+                
+                <div class="respuesta-container">
+                    <img id="img-respuesta-dalle" src="" alt="Respuesta de DALL-E">
+                </div>
+            </div>
+        </section>        
+
+        <section>
+            <h3>Precision en la generación de imágenes</h3>
+            <p>¡Increíble, ¿verdad?!</p>
+            <br>
+            <p>DALL-E permite ajustar el nivel de precisión y control en la generación de imágenes. Por ejemplo,
+                intentemos responder la siguiente pregunta: <span>¿Puedes generar una imagen de un perro?</span></p>
+            <br>
+            <p>Dependiendo de nuestras necesidades, podemos pedir una imagen sencilla o
+                detallada. Probémoslo a continuación.</p>
+            <br />
+
+            <div id="preguntaPerro"></div>
+            <button class="btnopciones" onclick="btnSencilla()">Sencilla</button>
+            <button class="btnopciones" onclick="btnDetallada()">Detallada</button>
+
+            <div class="playground-container">
+                <div class="promt-container">
+                    <p id="p_precision">¿Puedes generar una imagen de un perro? <span>Respuesta sencilla
+                            sin explicación.</span></p>
+                </div>
+                <div class="respuesta-container">
+                    <img id="img-respuesta-precision" src="" alt="Respuesta de DALL-E">
+                </div>
+            </div>
+            <button class="botonDALL-E" id="botonOpcion1"
+                onclick="LlamarOpcion1()">Generar sencilla</button>
+            <button class="botonDALL-E" id="botonOpcion2"
+                onclick="LlamarOpcion2()">Generar detallada</button>
+        </section>
+
+        <section class="estructura">
+            <h3>Estructura de un prompt para DALL-E</h3>
+            <p>El input que se le proporciona a DALL-E sigue una estructura sencilla para obtener resultados
+                satisfactorios:</p>
+            <ul>
+                <li><span class="azul">Contexto</span>: Instrucciones sobre cómo quieres que se genere la imagen.</li>
+                <li><span class="verde">Tarea</span>: La descripción de la imagen que deseas obtener.</li>
+                <li><span class="cafe">Restricciones</span>: Parámetros o limitaciones específicas que deseas aplicar a
+                    la imagen.</li>
+                <li><span class="rosado">Salida</span>: La imagen generada en un formato específico.</li>
+            </ul>
+            <p><span class="negro">Nota</span>: No es necesario incluir todos los elementos en cada prompt.</p>
+
+            <div class="playground-container">
+                <div class="promt-container">
+                    <p id="p_estructura"><span class="azul">Crea una ilustración</span> <span class="verde">de un
+                            paisaje de ensueño</span> <span class="cafe">con un castillo en ruinas y una luna llena en
+                            el cielo,</span> <span class="rosado">y entrégame la imagen en formato PNG.</span></p>
+                </div>
+                <div class="respuesta-container">
+                    <img id="img-respuesta-estructura" src="" alt="Respuesta de DALL-E">
+                </div>
+            </div>
+            <button class="botonDALL-E" id="botonEstructura" onclick="LlamarEstructura()">Generar
+                imagen</button>
+        </section>
+    </section>
+    <section class="otros">
+        <h3>DALL-E cuenta con más funciones</h3>
+        <p>La plataforma de Open Ai para en este caso DALL-E, posee funciones no solo para generar imagenes sino también
+            para editar y variar. 
+        </p>
+             
+             <h4>Ejemplo de edición de imagen </h4>
+             <p>En el caso de editar una imagen es aquel que se envia una imgen ya existente donde realiza un cambio sobre ella. 
+            </p>
+        <div class="playground-container"style="text-align: center;">
+            <div class="img-container">
+                <p >Original</p>
+                <img  src="/Assets/dalle/edit_1.jpg">
+                <p >Una ilustración de un
+                    paisaje de tipo neon tokyo,con<span class="morado"> una mujer con una jacket</span> en una calle
+                     comercial.</p></p>
+            </div>
+            <div class="img-container"style="text-align: center;">
+                <p >Editado</p>
+                <img  src="/Assets/dalle/edit_2.jpg">
+                <p >Edite la ilustración de un
+                    paisaje de tipo neon tokyo,con<span class="naranja"> un robot en una moto </span> en una calle
+                     comercial.</p></p>
+            </div>
+        </div>
+
+        <h4>Ejemplo de variación de imagen </h4>
+        <p>En el caso de variar una imagen es aquel que por medio de la generación de una imgen a partir de una
+            descripción solicitada, la inteligencia artificial genera varias imagenes sobre la misma descripción de maneras distintas. 
+        </p>
+        <div class="playground-container"style="text-align: center;">
+            <div class="img-container-long">
+                <img  src="/Assets/dalle/variar_vaca.png">
+                <p >Generar una ilustración de una
+                    vaca caricaturesca de color <span class="morado"> morado.</span></p></p>
+            </div>
+        </div>
+
+    </section>
+        <section class="Limites">
+            <h3>Límites y uso ético</h3>
+            <p>Es importante tener en cuenta los límites de esta herramienta y considerar aspectos éticos al utilizar
+                DALL-E. Aquí se explican algunos de los principales:</p>
+            <ul>
+                <li><span class="rojo">Falta de comprensión profunda</span>: DALL-E genera imágenes a partir de patrones
+                    y ejemplos existentes, pero no tiene un entendimiento profundo del contenido o contexto de las
+                    imágenes.</li>
+                <li><span class="rojo">Posibilidad de generar imágenes plausibles pero no existentes</span>: DALL-E
+                    puede crear imágenes que parecen reales pero no se basan en imágenes reales existentes. Por lo
+                    tanto, las imágenes generadas pueden no representar la realidad.</li>
+                <li><span class="rojo">Vulnerabilidad a sesgos</span>: DALL-E puede verse influenciado por los sesgos
+                    presentes en los datos de entrenamiento y generar imágenes que reflejen esos sesgos. Es importante
+                    tener en cuenta y abordar estos sesgos al usar DALL-E.</li>
+                <li><span class="rojo">Limitaciones en la generación de imágenes</span>: DALL-E tiene un límite en la
+                    resolución y calidad de las imágenes generadas. Además, hay un límite en el tamaño del archivo de
+                    imagen generado.</li>
+                <li><span class="rojo">Respeto a los derechos de autor y propiedad intelectual</span>: Es importante
+                    tener en cuenta los derechos de autor y la propiedad intelectual al utilizar DALL-E. No se deben
+                    generar imágenes que infrinjan los derechos de otros.</li>
+                <li><span class="rojo">Uso responsable</span>: DALL-E debe utilizarse de manera responsable y ética,
+                    evitando generar contenido perjudicial, engañoso o inapropiado.</li>
+                <li><span class="rojo">Actualización y límites de la base de datos</span>: La base de datos de DALL-E
+                    puede tener límites en cuanto a los conceptos y objetos que puede generar. Además, la base de datos
+                    puede no estar actualizada en tiempo real.</li>
+            </ul>
+        </section>
+
+        <section class="Sensible">
+            <h3>Información sensible</h3>
+            <p>Aunque se toman medidas para proteger la información, es importante tener precaución al utilizar DALL-E y
+                evitar compartir información sensible. Aquí hay algunas consideraciones:</p>
+            <ul>
+                <li><span class="rojo">No compartir información personal identificable</span>: Evita compartir datos
+                    personales como nombres, direcciones, números de teléfono, números de tarjetas de crédito, etc.</li>
+                <li><span class="rojo">Evitar compartir información confidencial</span>: No compartas información
+                    confidencial o protegida por acuerdos de confidencialidad con DALL-E.</li>
+                <li><span class="rojo">Consultar a profesionales para información médica</span>: No confíes en DALL-E
+                    para obtener información médica precisa. Siempre consulta a profesionales de la salud calificados.
+                </li>
+                <li><span class="rojo">Precaución con contraseñas y datos de acceso</span>: Nunca compartas contraseñas
+                    u otra información de acceso con DALL-E o cualquier otro sistema de inteligencia artificial.</li>
+                <li><span class="rojo">Usar en entornos seguros</span>: Utiliza DALL-E en un entorno seguro, evitando
+                    redes Wi-Fi públicas o abiertas. Opta por una conexión segura y privada.</li>
+                <li><span class="rojo">Leer los términos y condiciones</span>: Asegúrate de leer y comprender los
+                    términos y condiciones de uso de DALL-E, así como las políticas de privacidad. Si tienes dudas,
+                    comunícate con el equipo de soporte de DALL-E.</li>
+            </ul>
+        </section>
+
+        <section class="arte">
+            <h3>DALL-E cuenta con una variedad artística</h3>
+            <p>Ahora que sabes proporcionar prompt adecuado se puede generar no solo una ilustracion como tal sino que se puede agregar una variedad
+                artistica. Se puede mencionar en el apartado de <span class="azul"> contexto</span> en el prompt se puede dar un contexto 
+                <span class="naranja"> todavía mas artístico</span>
+            </p>
+            <div class="playground-container">
+                <div class="promt-container">
+                    <p id="p_arteUno"><span class="azul">Generar una pintura</span> <span class="naranja">realista en oleo</span>
+                         <span class="cafe"> de un capybara usando un traje real medieval con una corona en un fondo osucro y entrégame la imagen en formato PNG.
+                        </span> </p>
+                </div>
+                <div class="respuesta-container">
+                    <img id="img-respuesta-arteUno" src="" alt="Respuesta de DALL-E">
+                </div>
+            </div>
+            <button class="botonDALL-E" id="botonArteUno" onclick="LlamarArteUno()">Generar
+                imagen</button>
+        </section>  
+        <h4>¿Divertido verdad?</h4>
+        <p>Ahora vez que la imagen a comparación a lo anterior se ve mejor ilustrada.. Eso es por motivo del <span class="verde">CON</span><span class="rosado">TEX</span><span class="rojo">TO.</span>
+            Mejor es el contexto la imagen obtendra la mejor forma que pueda en base a la descripción.
+        </p>
+        <br></br>
+        <p>¿Tenés algún genero artístico favorito? </p>
+        <p>Dentro del contexto podemos usar referenicias artisticas usaremos el mismo
+            ejemplo pero con <span class="verde">pixel art y un traje diferente</span>
+        </p>
+        <br></br>
+        <div class="playground-container">
+            <div class="promt-container">
+                <p id="p_arteDos"><span class="azul">Generar una ilustracion dibujado </span> <span class="verde">en pixel art</span>
+                     <span class="cafe"> de un capybara usando un traje formal y elegante con un fondo oscuro, entrégame la imagen en formato PNG.
+                    </span> </p>
+            </div>
+            <div class="respuesta-container">
+                <img id="img-respuesta-arteDos" src="" alt="Respuesta de DALL-E">
+            </div>
+        </div>
+        <button class="botonDALL-E" id="botonArteDos" onclick="LlamarArteDos()">Generar
+            imagen</button>
+    </section>
+    <p> <span class="rojo">Nota: </span> recordemos que se puede usar adjetivos descriptivos en el contexto ejemplos: <span class="morado"> "antiguo", "futurista", "soleado" o "nevado"</span>
+    </p>
+    <br></br>
+    <section class="tips">
+        <h2>Aquí se proporcionara algunos consejos básicos</h2>
+        <p>Ahora que sabes mas sobre la herramienta hay que recordar ciertas cosas que  podrian mejorar mas el prompt del lo que se
+            desea conseguir en la ilustración se genere a partir de prompt de la mejor manera posible.
+        </p>
+        <h4>Crear una historia breve en el contexto</h4>
+        <p>En lugar de proporcionar solo una descripción básica, intenta crear una pequeña historia o escenario en el que se desarrollará la imagen. 
+            Esto puede dar lugar a imágenes más coherentes y visualmente interesantes.
+        </p>
+        <p class="rojo">❗Error común: No establecer un contexto coherente o proporcionar una historia demasiado compleja, 
+            lo que podría llevar a imágenes confusas o caóticas.
+        </p>
+        <h4>Puedes proporcionar restricciones o enfoques artísticos:</h4>
+        <p>Si tienes ciertas restricciones creativas o deseas un estilo artístico particular, menciónalo. 
+            Por ejemplo, "Genera una imagen minimalista de una bicicleta blanca sobre fondo negro".
+        </p>
+        <p class="rojo">❗Error común: Ser demasiado vago con las restricciones o el estilo deseado,
+             lo que podría llevar a imágenes que no cumplan con las expectativas creativas.
+        </p>
+        <h4>Puedes indicar el estado emocional o la atmósfera:</h4>
+        <p> Si deseas transmitir una sensación específica o ambiente en la imagen, comunícalo. 
+            Puedes decir algo como "Crea una imagen que capture la serenidad de un atardecer en la playa".
+        </p>
+        <p class="rojo">❗Error común: No comunicar claramente la emoción o atmósfera deseada,
+            lo que podría dar lugar a imágenes que no transmitan el sentimiento deseado.
+        </p>
+        <h4>Revisa y ajusta:</h4>
+        <p> Una vez que DALL-E genere una imagen basada en tu contexto, tómate un tiempo para revisarla y considerar si cumple con tus expectativas. 
+            Si no es así, puedes ajustar el contexto y realizar intentos adicionales.
+        </p>
+        <p class="rojo">❗Error común: No dedicar tiempo a revisar y ajustar el contexto después de que se haya generado la imagen, 
+            lo que podría llevar a perder oportunidades de mejora.
+        </p>
+    </section>
+
+
+    </main>
+
+</body>
+<script src="/js/dallE.js"></script>
+
+</html>

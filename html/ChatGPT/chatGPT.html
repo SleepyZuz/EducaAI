@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT</title>
+
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/tecnologias.css">
+    <link rel="stylesheet" href="/css/chatGPT.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header id="header">
+
+    </header>
+
+    <main>
+        <section class="indice">
+
+
+            <h3>Indice de contenidos</h3>
+            <ul>
+                <li><a href="#introduccion">Introducción</a></li>
+                <li><a href="#Precision">Precisión</a></li>
+                <li><a href="#estructura">Estructura </a></li>
+                <li><a href="#Limites">Límite y uso ético </a></li>
+                <li><a href="#Sensible">Información sensible </a></li>
+                <li><a href="#tipsbasicos">Tips básicos para mejorar un prompt</a>
+                    <ul>
+                        <li><a href="#basico1">1- Iniciar sencillo</a></li>
+
+                        <li><a href="#basico2">2- Ser específico</a></li>
+                        <li><a href="#basico3">3- Evitar ambigüedades</a></li>
+                        <li><a href="#basico4">4- Reafirmar</a></li>
+                        <li><a href="#basico5">5- Conocer la audiencia objetivo</a></li>
+                        <li><a href="#basico6">6- Dar ejemplo</a></li>
+
+
+
+                    </ul>
+                </li>
+                <li><a href="#erroresComunes">Errores comunes</a>
+                    <ul>
+                        <li><a href="#error1">1- Texto demasiado complejo</a></li>
+                        <li><a href="#error2">2- Jergas o ambiguedades</a></li>
+                        <li><a href="#error3">3- Limitaciones del modelo</a></li>
+                        <li><a href="#error4">4- Supuestos</a></li>
+                    </ul>
+                </li>
+                <li><a href="#tecnicasPromptEngineering">Tecnica promt engineering </a></li>
+            </ul>
+        </section>
+        <br><br>
+
+        <section class="introduccion" id="introduccion">
+            <h1>Empecemos por definir qué es ChatGPT.</h1>
+            <p class="p-definicion">Haz click en el botón para que ChatGPT genere una descripción. Dicha descripción se
+                puede generar varias
+                veces y cada vez tendrá una respuesta diferente.</p>
+            <div class="playground-container">
+
+
+                <div class="prompt-container">
+                    <p>Dame una descripción resumida de qué es ChatGPT</p>
+                </div>
+                <div class="respuesta-container">
+                    <p id="p-respuesta-chatgpt__Introduccion">(Respuesta de ChatGPT)</p>
+                </div>
+            </div>
+            <button class="botonGPT" id="botonDescripcionGPT" onclick="LlamarDescripcion()">Generar descripción</button>
+        </section>
+
+        <section class="Precision" id="Precision">
+            <h3>Precisión de la respuesta</h3>
+            <p>Interesante... ¿Verdad?</p>
+            <br>
+            <p>ChatGPT permite cambiar el nivel de precisión si se requiere. Por ejemplo, hagamos
+                la siguiente pregunta: <span> ¿Cuál es la fórmula de la equivalencia entre masa y energía?</span>
+            </p>
+
+            <br>
+            <p>Depende de lo que
+                necesitemos, podemos pedir la respuesta concisa (sin explicación), extendida o resumida. Hagamos la
+                prueba a continuación.</p>
+            <br />
+
+
+
+            <div id="preguntaEMC2"></div>
+            <button class="btnopciones" onclick="btnConcisa()">Conciso</button>
+            <button class="btnopciones" onclick="btnResumida()">Resumido</button>
+            <button class="btnopciones" onclick="btnExtensa()">Extenso</button>
+
+            <div class="playground-container">
+
+                <div class="prompt-container">
+                    <p id="p__precision">¿Cuál es la fórmula de la equivalencia entre masa y energía? <span>Respuesta
+                            concisa sin
+                            explicación</span></p>
+                </div>
+                <div class="respuesta-container ">
+                    <p id="p-respuesta-chatgpt__precision">(Respuesta de ChatGPT)</p>
+                </div>
+            </div>
+
+            <button class="botonGPT" id="botonPreguntaEMC2-p" onclick="LlamarRespuestaEMC2('conciso')">Pregunta
+                concisa</button>
+
+            <button class="botonGPT" id="botonPreguntaEMC2-r" onclick="LlamarRespuestaEMC2('resumido')">Pregunta
+                resumida</button>
+
+            <button class="botonGPT" id="botonPreguntaEMC2-e" onclick="LlamarRespuestaEMC2('extendido')">Pregunta
+                extendida</button>
+
+        </section>
+
+        <section class="estructura" id="estructura">
+            <h3>Estructura de un prompt</h3>
+            <p>La entrada en texto que reciben las inteligencias artificiales son llamadas "prompt". Para ChatGPT se puede
+                usar una estructura sencilla para conseguir buenos resultados</p>
+            <ul>
+                <li><span class="azul">Contexto</span>: Instrucciones de como quiero que se desarrolle su respuesta.
+                </li>
+                <li><span class="verde">Instrucción o tarea</span>: Objetivo principal que quiero que logre. </li>
+                <li><span class="cafe">Input</span>: Entradas para decirle con que quiero que ejecute la tarea</li>
+                <li><span class="rosado">Output</span>: Numerales, bullets points o formato específico </li>
+            </ul>
+            <p><span class="negro">Nota</span>: No es obligatorio usarlos todos.</p>
+
+            <div class="playground-container">
+
+                <div class="prompt-container">
+                    <p id="p__precision"><span class="azul">Actúa como un experto en historia del arte,</span> <span
+                            class="verde">compara y contrasta</span> las pinturas <span class="cafe">“La Última Cena” de
+                            Leonardo Da Vinci y “El Guernica” de Pablo Picasso,</span> <span class="rosado">y entrégame
+                            las comparaciones en numerales</span></p>
+                </div>
+                <div class="respuesta-container ">
+                    <p id="p-respuesta-chatgpt__estructura">(Respuesta de ChatGPT)</p>
+                </div>
+            </div>
+            <button class="botonGPT" id="botonEstructura" onclick="LlamarEstructura('conciso')">Generar
+                respuesta</button>
+        </section>
+
+        <section class="Limites" id="Limites">
+            <h3> Límites y uso etico</h3>
+            <p>Es importante conocer los límites de esta herramienta, en esta zona se explican cuáles son las
+                principales</p>
+            <ul>
+                <li><span class="rojo">Falta de comprensión profunda</span>: Los modelos lo que hacen es acomodar
+                    palabras que tengan una probabilidad muy alta de continuar con el hilo de texto para satisfacer el
+                    prompt. NO tienen una comprensión profunda de lo que dicen.</li>
+                <li><span class="rojo">Respuestas plausibles, pero pueden ser incorrectas</span>: Hay ocasiones que
+                    ocurren “Alucinaciones”. Que ChatGPT está seguro de lo que dice, pero esta incorrecto (Animal
+                    acuático más grande = elefante). Es importante saber que esto puede ocurrir, así que es mejor
+                    contrastar la información. </li>
+                <li><span class="rojo">Sensibilidad al sesgo</span>: Los modelos se entrañan con texto, audio o video
+                    que se encuentra en internet. Esa información puede ser poco ética.</li>
+                <li><span class="rojo">Vulnerabilidad a la manipulación</span>: Están entrenados para no hacer tareas
+                    que lleven al mal (Como una bomba casera), pero hay técnicas que permiten saltarse esos filtros.
+                </li>
+                <li><span class="rojo">Dificultad de mantener contexto</span>: Puede ser que cuando una conversación se
+                    vuelva larga, se pierda. </li>
+                <li><span class="rojo">actualización en tiempo real</span>: En este momento la base de datos esta
+                    actualizada hasta septiembre 2021. </li>
+                <li><span class="rojo">Máximo de tokens</span>: Tiene un límite de palabras que puede recibir y generar.
+                    Ejemplo que no se pueda meter el quijote de la mancha entero. </li>
+
+            </ul>
+
+        </section>
+
+        <section class="Sensible" id="Sensible">
+            <h3> Informacion sensible</h3>
+            <p>Aunque Open AI afirma que la información que recibe el chat no se comparte con terceros, es mejor no
+                compartir información delicada. Además de que queda registrado el historial en tu navegador.</p>
+            <ul>
+                <li><span class="rojo">No compartir información personal identificable con el chatbot</span>: Evita
+                    compartir información como tu nombre completo, dirección, número de seguro social, número de tarjeta
+                    de crédito o cualquier otra información que pueda identificarte personalmente.</li>
+                <li><span class="rojo">No compartas información que esté protegida bajo un acuerdo de
+                        confidencialidad</span>: Esto podría meterte en problemas y afectar a la empresa u
+                    organizaciones con las que colabores. </li>
+                <li><span class="rojo">Tener cuidado con la información médica</span>: Consulta con tu profesional de la
+                    salud para compartir información sobre tus condiciones médicas, medicamentos o tratamientos con
+                    ChatGPT. </li>
+                <li><span class="rojo">Evita compartir contraseñas</span>: Los chatbots no necesitan esa información
+                    para proporcionarte ayuda. Es posible que si la soliciten se trate de un clon malicioso </li>
+                <li><span class="rojo">Asegúrate de estar en un entorno seguro. Evita utilizar ChatGPT en redes públicas
+                        o abiertas de Wi-Fi.</span>: Utiliza una conexión segura y privada, como una red Wi-Fi
+                    doméstica, una conexión celular o una VPN. </li>
+                <li><span class="rojo">Revisa los términos y condiciones de uso de ChatGPT.</span>: Asegúrate de leer
+                    los términos y condiciones de uso de ChatGPT y comprende cómo se maneja y protege tu información. Si
+                    tienes preguntas o inquietudes, ponte en contacto con el equipo de soporte de ChatGPT. </li>
+
+            </ul>
+
+        </section>
+
+        <section class="tipsbasicos" id="tipsbasicos">
+            <h3> Tips basicos para mejorar las respuestas</h3>
+            <div class="basico1" id="basico1">
+
+                <h4> 1- iniciar sencillo y agregar detalles.</h4>
+
+                <p class="p-definicion">Empezar simple, y después irle agregando más detalles, con el fin de comprobar
+                    que es capaz de crear una respuesta correcta .</p>
+                <p class="p-definicion">En los siguientes 3 ejemplos vamos a ver como con agregarle más detalles al
+                    prompt, nos va a poder responder con ingredientes diferentes o con pasos extra.</p>
+                <button class="btnopciones" onclick="btn_basico1Paso1()">Paso 1</button>
+                <button class="btnopciones" onclick="btn_basico1Paso2()">Paso 2</button>
+                <button class="btnopciones" onclick="btn_basico1Paso3()">Paso 3</button>
+
+                <div class="playground-container">
+
+
+                    <div class="prompt-container">
+                        <p id="p__basico1">escribe una receta de pasta</p>
+                    </div>
+                    <div class="respuesta-container">
+                        <p id="p-respuesta-chatgpt__basico1">(Respuesta de ChatGPT)</p>
+                    </div>
+                </div>
+
+                <button class="botonGPT" id="botonSencillo" onclick="LlamarRespuestaBasico1('sencillo')">Inicio
+                    Sencillo</button>
+
+                <button class="botonGPT" id="botonMedio" onclick="LlamarRespuestaBasico1('medio')">Agregar unos
+                    detalles</button>
+
+                <button class="botonGPT" id="botonDetallado"
+                    onclick="LlamarRespuestaBasico1('alonsin programadorsin')">Darle todavia mas
+                    detalles</button>
+            </div>
+
+            <div class="basico2" id="basico2">
+
+                <h4> 2- Ser especifico.</h4>
+                <p>En caso de que se desea hacer alguna tarea compleja es mejor dar bastante detalle de los puntos que
+                    se quieren que sean tocados en la respuesta</p>
+                <br>
+
+                <p class="p-definicion rojo">❌Escribe una carta sobre un estudiante llamado Juan Pérez para ayudarlo a
+                    ingresar a un programa de posgrado computación</p>
+
+                <div class="playground-container">
+
+
+                    <div class="prompt-container">
+                        <p id="p__basico2">Redacta una carta de recomendación de un estudiante llamado Juan Pérez <span>
+                                para su solicitud de ingreso a la maestría de Ciencias de la computación. Menciona su
+                                habilidad en programación, capacidad para trabajar en equipo y habilidades de
+                                comunicación. la carta debe incluir una introducción cuerpo y conclusión y debe contener
+                                no más de 3 párrafos</span></p>
+                    </div>
+                    <div class="respuesta-container">
+                        <p id="p-respuesta-chatgpt__basico2">(Respuesta de ChatGPT)</p>
+                    </div>
+                </div>
+
+                <button class="botonGPT" id="btnBasico2" onclick="LlamarRespuestaBasico2()">Ser especifico</button>
+
+            </div>
+
+            <div class="basico3" id="basico3">
+
+                <h4> 3- Evitar ambiguedades</h4>
+                <p>Es importante no caer en ambigüedades al redactar los prompts. Hay elementos que pueden ser
+                    subjetivos entre lo que considero que significan y lo que el modelo puede considerar que significa
+                    (por ejemplo, utilizar “breve/extenso”, “poco/mucho”). Es mejor especificar al máximo (por ejemplo,
+                    con valores numéricos) a qué nos referimos con estos elementos.</p>
+                <br>
+
+                <p class="p-definicion rojo">❌Explica el concepto de prompt engineering. Procura que la explicación sea
+                    breve, solo unas oraciones, y no seas demasiado descriptivo</p>
+
+                <div class="playground-container">
+
+
+                    <div class="prompt-container">
+                        <p id="p__basico3">Usa de 2 a 3 oraciones para explicar el concepto de prompt engineering a un
+                            estudiante de Secundaria</p>
+                    </div>
+                    <div class="respuesta-container">
+                        <p id="p-respuesta-chatgpt__basico3">(Respuesta de ChatGPT)</p>
+                    </div>
+                </div>
+
+                <button class="botonGPT" id="btnBasico3" onclick="LlamarRespuestaBasico3()">Evitar ambiguedades</button>
+
+            </div>
+
+            <div class="basico4" id="basico4">
+
+                <h4> 4- Reafirmar</h4>
+                <p>En algunas ocasiones el modelo puede entender unas instrucciones diferentes a las que nosotros
+                    tenemos planeado, por lo que agregarle al final del prompt una pregunta para saber si entendió bien
+                    la tarea.</p>
+                <br>
+
+                <div class="playground-container">
+
+
+                    <div class="prompt-container">
+                        <p id="p__basico4">Actúa como un experto en historia del arte, compara y contrasta las pinturas
+                            “La Última Cena” de Leonardo Da Vinci y “El Guernica” de Pablo Picasso, y entrégame las
+                            comparaciones en numerales <span>¿Entendiste tu propósito?</span></p>
+                    </div>
+                    <div class="respuesta-container">
+                        <p id="p-respuesta-chatgpt__basico4">(Respuesta de ChatGPT)</p>
+                    </div>
+                </div>
+
+                <button class="botonGPT" id="btnBasico4" onclick="LlamarRespuestaBasico4()">Reafirmar</button>
+
+            </div>
+
+            <div class="basico5" id="basico5">
+
+                <h4> 5- Conocer la audiencia objetivo</h4>
+                <p>Tener en mente las personas a que van a ver los resultados del prompt. Puede ir dirigido a cierto
+                    gremio (informáticos, diseñadores, políticos), algún rango de edad o grado académico, entre otros.
+                </p>
+                <br>
+
+                <div class="playground-container">
+
+
+                    <div class="prompt-container">
+                        <p id="p__basico5">Actúa como un experto en física y aplica el conocimiento de la teoría de la
+                            relatividad de Einstein <span>a un niño de 12 años.</span> Describe de manera simple y con
+                            analogías cotidianas los distintos conceptos alrededor de esta teoría</p>
+                    </div>
+                    <div class="respuesta-container">
+                        <p id="p-respuesta-chatgpt__basico5">(Respuesta de ChatGPT)</p>
+                    </div>
+                </div>
+
+                <button class="botonGPT" id="btnBasico5" onclick="LlamarRespuestaBasico5()">Audiencia objetivo</button>
+
+            </div>
+
+            <div class="basico6" id="basico6">
+
+                <h4> 6- Dar ejemplo</h4>
+                <p>Chat GPT tiene suficiente abstracción para poder darle un ejemplo y que su respuesta la tome como
+                    ejemplo para poder mejorarlo o encontrar una solución al problema que se trata de resolver. Estos
+                    ejemplos pueden ser un código que no compila, una idea para que sea desarrollada a más profundidad o
+                    hasta otro prompt para otra AI.</p>
+                <p>En este ejemplo le pasamos un prompt básico para una Inteligencia Aritificial de imágenes como Dall-E
+                    2 y le solicitamos que lo mejore (En inglés para que sea más efectivo)</p>
+                <br>
+
+                <div class="playground-container">
+
+
+                    <div class="prompt-container">
+                        <p id="p__basico6">Your work is to describe a scene in a beautiful photo in your very detail
+                            way. your description can’t exceed 70 words and should be similar to the next example</p>
+                        <p id="p_basico6"> Example: “a photographer capturing the beauty and intricacy of a handcrafted
+                            piece of pottery with the texture and details of the clay surface adding visual interest and
+                            depth. the use of soft light and shallow depth of field creates a sense of focus on
+                            intricate powers and forms, emphasizing the beauty of human craftsmanship and creativity.”
+                        </p>
+                    </div>
+                    <div class="respuesta-container">
+                        <p id="p-respuesta-chatgpt__basico6">(Respuesta de ChatGPT)</p>
+                    </div>
+                </div>
+
+                <button class="botonGPT" id="btnBasico6" onclick="LlamarRespuestaBasico6()">Dar ejemplo</button>
+
+            </div>
+        </section>
+
+        <section class="erroresComunes" id="erroresComunes">
+            <h3>Errores comunes</h3>
+            <p>A continuación, se van a mencionar algunas condiciones que deben ser evitados, ya que pueden llegar a perjudicar el entendimiento de la inteligencia artificial y que no se de una respuesta acertada</p>
+
+            <div class="error1" id="error1">
+                <h4>Texto demasiado complejo</h4>
+                <p>En el siguiente ejemplo se muestra un promt en el que se entra en supuestos, demasiadas variables y un hilo de seguimiento del tema muy perdido</p>
+                <p><span class="rojo">❌ Suponiendo que estás en una situación hipotética en la que tienes que elegir entre 3 películas de ciencia ficción que se proyectarán en 3 cines diferentes en una ciudad que no conoces y que tendrás que tomar 3 medios de transporte diferente para llegar a cada uno de ellos, pero no tienes acceso a internet para buscar información sobre las películas los cines o los medios de transporte ¿Qué película elegirías y cómo llegarás al cine? Además, piensa en qué tipo de snack querrías para acompañar la película y cómo afectará el clima y la política local en tu elección</span></p>
+            </div>
+            
+            <div class="error2" id="error2">
+                <h4>2- Jergas o ambigüedades</h4>
+                <p>Las palabras que no son de un uso normal en el lenguaje en el que se hace la consulta (Modismos, lenguaje muy técnico o hablado tico) puede llegar a afectar el modelo y que no entienda bien la idea</p>
+                <p><span class="rojo">❌ Optimice el rendimiento de la red neuronal utilizando una técnica de optimización de gradiente estocástico con un factor de aprendizaje de 0.001 y un batch size de 32. La función de pérdida debe ser la entropía cruzada categórica y el modelo debe ser entrenado durante 100 épocas</span></p>
+            </div>
+            <div class="error3" id="error3">
+                <h4>3- Limitaciones del modelo</h4>
+                <p>Es necesario investigar un poco cuales son los puntos débiles del modelo, puedes regresar a la sección <a href="#Limites"> Límites </a> recordar cuales son las de chatGPT</p>
+                <p>❌ ¿Cuál es el país que ha presentado mayor crecimiento económico <span class="rojo"> este año 2023?</span></p>
+            </div>
+            <div class="error4" id="error4">
+                <h4>4- Supuestos</h4>
+                <p>Evitar dejar información importante sin comentarla. En el ejemplo se pregunta por el tiempo en cocinar una pizza, pero se ignoran detalles como la temperatura del horno, los ingredientes o cual es el término que se desea</p>
+                <p><span class="rojo">❌ Cuanto tiempo tarda en cocinarse una pizza</span></p>
+            </div>
+           
+        </section>
+
+
+        <section class="tecnicasPromptEngineering" id="tecnicasPromptEngineering">
+            <h3>Tecnicas de prompt engineering</h3>
+            <div class="tpe1" id="tpe1">
+    
+                <h4> 1- Shots</h4>
+    
+                <p class="p-definicion">En la ingenieria de prompts se puede utilizar la palabra "shot" para referirse a un ejemplo explicito. ChatGPT funciona bien sin la necesidad de darle ejemplos, pero en ciertas ocasiones podemos mejorar el promt agregandole shots</p>
+                <p class="p-definicion">En los siguientes 3 ejemplos vamos a ver las 3 tecnicas de shots.</p>
+                
+                <p> <span class="negro">Zero-Shot:</span> No pasarle ningun shot</p>
+                
+                <p> <span class="negro">One-Shot:</span> Pasarle un shot</p>
+                
+                <p> <span class="negro">Few-Shots:</span> Pasarle algunos shots</p>
+                <button class="btnopciones" onclick="botonZero()">Zero-Shot</button>
+                <button class="btnopciones" onclick="botonOne()">One-Shot</button>
+                <button class="btnopciones" onclick="botonFew()">Few-Shot</button>
+    
+                <div class="playground-container">
+    
+    
+                    <div class="prompt-container">
+                        <p id="p__tpe1">Diseña 10 preguntas de deletreo para un niño de 7 años</p>
+                    </div>
+                    <div class="respuesta-container">
+                        <p id="p-respuesta-chatgpt__tpe1">(Respuesta de ChatGPT)</p>
+                    </div>
+                </div>
+    
+                <button class="botonGPT" id="botonZero" onclick="LlamarRespuestaTPE1('Zero-Shot')">Zero-Shot
+                    </button>
+    
+                <button class="botonGPT" id="botonOne" onclick="LlamarRespuestaTPE1('One-Shot')">One-Shot
+                    </button>
+    
+                <button class="botonGPT" id="botonFew"
+                    onclick="LlamarRespuestaTPE1('')">Few-Shots
+                    </button>
+            </div>
+        </section>
+
+    </main>
+
+    
+
+    <div id="footer">
+
+    </div>
+
+</body>
+<script src="/js/chatGPT.js"></script>
+
+</html>

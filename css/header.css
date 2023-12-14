@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
+:root{
+    --verde: #2BABAB;
+    --verde-claro: #48d4cb;
+    --gris: #f1f1f1;
+    --negro: #232323;
+}
+
+*{
+    box-sizing: border-box; 
+    
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+html{
+    font-size: 62.5%;
+}
+body{
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;   
+    background-color: var(--gris);
+}
+
+
+header nav{
+    display: flex;
+    background-color: var(--verde);
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.header-image-container{
+    width: 95px;
+    height: 95px;
+}
+.header-image-container img{
+    width: 95px;
+    height: 95px;
+    object-fit: contain;
+}
+header nav ul{
+    display: flex;
+    
+}
+header nav ul li{
+    list-style: none;
+    font-size: 1.8rem;
+    margin: 20px;
+}
+header nav ul li a{
+    text-decoration: none;
+    color: var(--gris);
+    font-weight: 500;
+}
+.header-container{
+    width: 100%;
+    height: 250px;
+    background-color:#1d8484;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--gris);
+}
+
+header nav ul li a:hover{
+    border-bottom: 1px solid #1f816f;
+    
+}

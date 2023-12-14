@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
+:root{
+    --verde: #2BABAB;
+    --verde-claro: #48d4cb;
+    --gris: #f1f1f1;
+    --negro: #232323;
+
+}
+
+*{
+    box-sizing: border-box; 
+    
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+html{
+    font-size: 62.5%;
+}
+body{
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;   
+    background-color: var(--gris);
+}
+main{
+    padding: 40px;
+}
+
+h1 {
+    font-size: 3.0rem; /* Tamaño de fuente para h1 */
+}
+h2 {
+    font-size: 2.6rem; /* Tamaño de fuente para h2 */
+}
+h3 {
+   font-size: 2.2rem; /* Tamaño de fuente para h3 */
+   margin-bottom: 20px;
+}
+h4 {
+   font-size: 1.8rem; /* Tamaño de fuente para h4 */
+}
+h5 {
+  font-size: 1.6rem; /* Tamaño de fuente para h5 */
+}
+h6 {
+  font-size: 1.4rem; /* Tamaño de fuente para h6 */
+}
+p {
+  font-size: 1.6rem; /* Tamaño de fuente para párrafos */
+}
+li{
+    font-size: 1.6rem;
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+span{
+    font-weight: 700;
+    color: var(--verde);
+}
+.azul{
+    color: rgb(57, 71, 200);
+}
+.verde{
+    color: #21ba29;
+}
+.cafe{
+    color: rgb(163, 99, 50);
+}
+.rosado{
+    color: #e76e8c;
+}
+.negro{
+    color: var(--negro)
+}
+.rojo{
+    color: red
+}
+.naranja{
+    color: #ff8000;
+}
+.morado{
+    color: #aa07b5;
+}
+.inactive{
+    display: none;
+}
+section{
+    min-width: 350px;
+    max-width: 1300px;
+}
+
+.btnopciones{
+    background-color: #8992A0;
+    color: white;
+    height: 40px;
+    width: 70px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.botonDALL-E {
+    background-color: var(--verde-claro);/* Green background */
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    border-radius:5px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+.botonDALL-E:hover {
+    background-color: var(--verde);/* Green background */
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    border-radius:5px;
+}
+
+
+.playground-container{
+    display: flex;
+    margin-bottom: 20px;
+ }
+
+.promt-container {
+    width: 400px;
+    height: 300px;
+    background: white;
+    border-radius: 10px;
+    margin-right: 20px;
+    overflow: auto;
+ }
+
+ .img-container {
+    width: 700px;
+    height: 600px;
+    background: white;
+    border-radius: 10px;
+    margin-right: 20px;
+    overflow: auto;
+ }
+ .img-container-long {
+    width: 1300px;
+    height: 370px;
+    background: white;
+    border-radius: 10px;
+    margin-right: 20px;
+    overflow: auto;
+ }
+.promt-container p{
+    padding: 10px;
+}
+.respuesta-container {
+    width: 67%;
+    height: 300px;
+    background: white;
+    border-radius: 10px;
+    overflow: auto;
+    
+}
+.respuesta-container p{
+    padding: 10px;
+    font-size: 1.8rem;
+    color: #424242;
+}
+
+
+.introduccion h1 {
+    margin-bottom: 10px;
+}
+.introduccion .p-definicion {
+    margin-bottom: 20px;
+}
+
+
+/*ESTRUCTURA*/
+
+section P{
+    margin-bottom: 25px;
+}
+
+section ul{
+    margin-bottom: 25px;
+}
+
+/*ESTOS SON PARA MODIFICAR LOS TAMAÑOS DE LOS CONTAINERS DE MANERA RAPIDA
+
+la gracias es que respuestas cortas no ocupen tanto espacio
+*/
+
+.pequeno{
+    width: 300px;
+    height: 100px;
+}
+.medio{
+    width: 400px;
+    height: 200px;
+}
+
+
