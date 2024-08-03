@@ -12,7 +12,7 @@ function LlamarEjemploDALLE() {
         type: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer API KEY"
         },
         data: JSON.stringify({
             "prompt": "Dibuja un perro feliz.",
@@ -78,7 +78,7 @@ function LlamarOpcion2() {
         type: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer API KEY"
         },
         data: JSON.stringify({
             "prompt": "Dibuja un perro color café y con lentes.",
@@ -111,7 +111,7 @@ function LlamarEstructura() {
         type: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer API KEY"
         },
         data: JSON.stringify({
             "prompt": "Crea una ilustración de un paisaje de ensueño con un castillo en ruinas y una luna llena en el cielo, y entrégame la imagen en formato PNG.",
@@ -159,7 +159,7 @@ function LlamarArteUno() {
         type: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer API KEY"
         },
         data: JSON.stringify({
             "prompt": "Generar una pintura realista en oleo de un capybara usando un traje real medieval con una corona en un fondo osucro y entrégame la imagen en formato PNG.",
@@ -188,7 +188,7 @@ function LlamarArteDos() {
         type: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer API KEY"
         },
         data: JSON.stringify({
             "prompt": "Generar una ilustracion dibujado en pixel art de un capybara usando un traje formal y elegante con un fondo oscuro, entrégame la imagen en formato PNG.",
