@@ -18,7 +18,7 @@ function LlamarDescripcion() {
         dataType: "json",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer API KEY"
         },
         data: `{
         "model": "gpt-3.5-turbo",
@@ -69,7 +69,7 @@ function LlamarRespuestaEMC2(modo) {
         dataType: "json",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer API KEY"
         },
         data: modo == "conciso" ? dataConcisa : modo == "resumido" ? dataResumida : dataExtendida,
         success: function (result) {
@@ -104,7 +104,7 @@ function LlamarEstructura() {
         dataType: "json",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer API KEY"
         },
         data: `{
         "model": "gpt-3.5-turbo",
@@ -191,7 +191,7 @@ function LlamarRespuestaBasico2() {
         dataType: "json",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer API KEY"
         },
         data: `{
         "model": "gpt-3.5-turbo",
@@ -222,7 +222,7 @@ function LlamarRespuestaBasico3() {
         dataType: "json",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer API KEY"
         },
         data: `{
         "model": "gpt-3.5-turbo",
@@ -252,7 +252,7 @@ function LlamarRespuestaBasico4() {
         dataType: "json",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer API KEY"
         },
         data: `{
         "model": "gpt-3.5-turbo",
@@ -282,7 +282,7 @@ function LlamarRespuestaBasico5() {
         dataType: "json",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer API KEY"
         },
         data: `{
         "model": "gpt-3.5-turbo",
@@ -312,7 +312,7 @@ function LlamarRespuestaBasico6() {
         dataType: "json",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer API KEY"
         },
         data: `{
         "model": "gpt-3.5-turbo",
@@ -366,7 +366,7 @@ function LlamarRespuestaTPE1(modo) {
         dataType: "json",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer API KEY"
         },
         data: modo == "Zero-Shot" ? dataSencillo : modo == "One-Shot" ? dataMedio : dataDetallado,
         success: function (result) {
